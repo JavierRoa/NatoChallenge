@@ -13,6 +13,13 @@ public class NatoChallenge {
         System.out.println(charConverterToNato('d'));
         System.out.println(charConverterToNato('E'));
         System.out.println(charConverterToNato('F'));
+        System.out.println("Testing the second method:");
+        System.out.println(charConverterToNatoEnhanced('A'));
+        System.out.println(charConverterToNatoEnhanced('b'));
+        System.out.println(charConverterToNatoEnhanced('C'));
+        System.out.println(charConverterToNatoEnhanced('d'));
+        System.out.println(charConverterToNatoEnhanced('E'));
+        System.out.println(charConverterToNatoEnhanced('F'));
     }
     private static String charConverterToNato (char character) {
         String finalMessage = character + " - ";
@@ -34,9 +41,20 @@ public class NatoChallenge {
                 finalMessage += EASY;
                 break;
             default:
-                finalMessage = NOT_FOUND;
+                finalMessage += NOT_FOUND;
         }
         return finalMessage;
     }
+    private static String charConverterToNatoEnhanced(char character) {
+        String finalMessage = character + " - ";
 
+        return finalMessage + switch (character) {
+            case 'A', 'a' -> ABLE;
+            case 'B', 'b' -> BAKER;
+            case 'C', 'c' -> CHARLIE;
+            case 'D', 'd' -> DOG;
+            case 'E', 'e' -> EASY;
+            default -> NOT_FOUND;
+        };
+    }
 }
